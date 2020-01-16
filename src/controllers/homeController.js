@@ -78,6 +78,29 @@ class Controller {
         }
 
     }
+
+    getImage(req, res){
+        var filePath = __dirname + "/assets/images/"+req.query.name;
+
+        const r = fs.createReadStream(filePath);
+        const ps = new stream.PassThrough();
+
+        stream.pipeline(
+            r,
+            ps,
+            err => {
+                if(err){
+                    return res.status(500).json({
+                        code: 500,
+                        msg: err
+                    })
+                }
+            }
+        );
+
+        ps.pipe(res);
+
+    }
 }
 
 module.exports = new Controller();

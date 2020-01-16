@@ -1,3 +1,3 @@
 module.exports = {
-    backendUrl: "https://nurseryrhymes.herokuapp.com"
+    backendUrl: "https://animal-sounds.herokuapp.com"
 }

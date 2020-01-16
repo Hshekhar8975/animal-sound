@@ -4,12 +4,13 @@ const ct = require("../controllers/homeController");
 
 function homeRoute(req, res){
     ct.getData(req, res);
-    // res.status(200).json({
-    //     code: 200,
-    //     msg: "ok"
-    // });
-}
+};
+
+function getImage(req, res){
+    ct.getImage(req, res);
+};
 
 router.get('/', homeRoute);
+router.get('/image', getImage);
 
 module.exports = router;
